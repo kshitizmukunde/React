@@ -46,16 +46,16 @@ export const SeriesCard = ({ data }) => {
                 height="40%" 
             />
             </div>
-            <div className={styles['card-content']}>
+            {/* <div className={styles['card-content']}> */}
+            <div className="flex flex-col gap-4 py-[3.2rem] px-[1.2rem]">
                 <h2>Name: {name}</h2>
                 <Rating>Rating: <span className={`${styles.rating} ${ratingClass}`}> {rating} </span></Rating>
 
-                <p>Summary: {description}</p>
+                <p className="text-3xl font-bold underline">Summary: {description}</p>
                 
                 <p>Genre: {genre.join(", ")}</p>
                 <p>Cast: {cast.join(", ")}</p>
                 <a href={watch_url} target='_blank'>
-                <button style={btn_style}>Watch Now</button>
                 <ButtonThapa rating={rating}>Watch Now</ButtonThapa>
                 </a>
             </div>
