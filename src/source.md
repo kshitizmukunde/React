@@ -1,6 +1,16 @@
 to start App
 bun dev
 
+
+** To pull Request from Git
+git pull origin main
+
+** To Push Into repository
+
+
+
+
+
 React does not render 'false', 'null', 'undefined', or 'NaN' in the DOM. These values, when used in JSX, will result in nothing being displayed.
 
 However, '0' and empty strings (`""`) are exceptions.
