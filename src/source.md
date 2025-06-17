@@ -39,3 +39,20 @@ Each named exports must be explicitly exported.
 Named Import:
 When importing named exports, the import names must watch the export names exactly.
 Named imports must be enclosed in curly braces.
+
+
+## Part 1: Simple Todo list in react
+
+**Title** Creating a Simple Todo List in React with best Practices.
+
+**Overview** 
+In This Video, we'll start with the basics of building a simple Todo List in React. We'll focus in setting up the project, creating the components, and managing states effectively.
+
+**What will we do Today**
+
+- Set up the React Project
+- Create teh main 'Todo' Component
+- Build the "TodoForm' Component for adding tasks.
+- Use the 'useState' hook to manage list of tasks.
+- Implement basic form validation to ensure tasks are not empty.
+- Discuss best practices for component structure and state management.

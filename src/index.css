@@ -49,7 +49,7 @@ a {
 
 /* theme */
 :root {
-  --main-color: #0062ff;
+  /* --main-color: #0062ff;
   --supporting-color: #ebf3f3;
   --font-color: #424242;
   --bg-color: #ffffff;
@@ -59,12 +59,15 @@ a {
   --test: #070101;
   --para-color: #504e4d;
   --bnt-hover-bg-color: #003B99;
-  --btn-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --btn-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+  --primary-color: #1c2833;
+  --secondary-color: #fff;
+  --bg-color: #f2f3f4; 
 }
 
 
 /* layout */
-.container {
+/* .container {
   max-width: 142rem;
   margin: 0 auto;
 }
@@ -79,4 +82,4 @@ a {
 
 .grid-three--cols {
   grid-template-columns: repeat(3, 1fr);
-}
+} */
