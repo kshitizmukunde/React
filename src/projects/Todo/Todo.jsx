@@ -1,41 +1,84 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Todo.css";
+import { MdCheck, MdDeleteForever } from "react-icons/md";
+import { TodoForm } from "./TodoForm";
+import { TodoList } from "./TodoList"; 
+import { TodoDate } from "./TodoDate";
+import { getLocalStorageTodoData, setLocalStorageTodoData } from "./TodoLocalStorage";
 
 export const Todo = () => {
 
-    const [inputValue, setInputValue] = useState("");
-    const [task, setTask] = useState([]); 
+    const [task, setTask] = useState(() => getLocalStorageTodoData());
 
-    const handleClickChange = (value) => {
-        setInputValue(value);
+    const handleFormSubmit = (inputValue) => {
+        const { id, content, checked } = inputValue; 
+        
+        // To check if the input field is empty or not 
+        if(!content) return;
+
+        // To check if the data is already existing or not
+        // if(task.includes(inputValue)) return; 
+
+        const ifTodoContentMatched = task.find(
+            (curTask) => curTask.content === content 
+        );
+        if (ifTodoContentMatched) return;
+
+        setTask((prevTask) => [...prevTask, {id, content, checked }]); 
     }
 
-    const handleFormSubmit = (event) => {
-        event.preventDefault();
+    setLocalStorageTodoData(task);
 
-        if(!inputValue) return;
+    // Todo HandleDeletetodo function.
+    const handleDeleteTodo = (value) => {
+        const updatedTask = task.filter((curTask) => curTask.content != value);
+        setTask(updatedTask);
+    };
 
-        if(task.includes(inputValue)) return;
-
-        setTask((prevTask) => [...prevTask, inputValue]);
-
-        setInputValue("");
+    // todo handleClearTodoData functionality
+    const handleClearTodoData = () => {
+        setTask([]);
     }
 
-    return (
-        <section className="todo-container">
-            <header>
-                <h1>Todo List</h1>
-            </header>
-            <section className="form">
-                <form onSubmit={handleFormSubmit}>
-                    <div>
-                        <input type="text" className="todo" autoComplete="off" value={inputValue} onChange={(event) => handleClickChange(event.target.value)}/>
-                    </div>
-                    <button type="submit" className="todo-btn">Add Task</button>
-                </form>
-            </section>
-              
+    // todo handleCheckedTodo functionality
+    const handleCheckedTodo = (content) => {
+        const updatedTask = task.map((curTask) => {
+            if(curTask.content === content){
+                return { ...curTask, checked: !curTask.checked }
+            }else{
+                return curTask;
+            }
+        });
+        setTask(updatedTask);
+    }
+
+    return <section className="todo-container">
+        <header>
+            <h1>Todo List</h1>
+            <TodoDate />
+        </header>
+        <TodoForm onAddTodo = {handleFormSubmit} />
+        <section className="myUnOrdList">
+            <ul>
+                {
+                    task.map((curTask) => {
+                        return (
+                            <TodoList 
+                            key={curTask.id} 
+                            data={curTask.content} 
+                            checked={curTask.checked}
+                            onHandleDeleteTodo={handleDeleteTodo}
+                            onHandleCheckedTodo = {handleCheckedTodo}
+                            />   
+                        );
+                    })
+                }
+            </ul>
         </section>
-    )
+        <section>
+            <button className="clear-btn" onClick={handleClearTodoData}>
+                Clear All
+            </button>
+        </section>
+    </section>
 }
