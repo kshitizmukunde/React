@@ -198,8 +198,9 @@ figure {
   height: 15rem;
 }
 
-pokemon-info {
+.pokemon-info {
   text-align: center;
+  color: #000;
 }
 
 /* ///////////////////////////////////////// */

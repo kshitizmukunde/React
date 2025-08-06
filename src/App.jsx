@@ -1,12 +1,9 @@
-import { Cleanup } from "./components/hooks/UseEffect/CleanUp"
-import { HowNotToFetchApi } from "./components/hooks/UseEffect/HowNotTo FetchApi"
+import { ParentComponent } from "./components/PropDrilling";
 
 export const App = () => {
   return  (
     <section className="container">
-      {<HowNotToFetchApi />}
+      {<ParentComponent />}
     </section>
-  )
-}
-
-
+  );
+};
