@@ -19,7 +19,7 @@ h3,
 h4, 
 h5,
 h6 {
-  color: var(--heading-color);
+  /* color: var(--heading-color); */
   font-family: "Poppins", sans-serif;
   font-weight: 900;
 }
@@ -34,7 +34,7 @@ a,
 label {
   font-size: 1.8rem;
   letter-spacing: 0.1rem;
-  color: var(--para-color);
+  /* color: var(--para-color); */
   line-height: 1.5;
   font-weight: 400;
 }

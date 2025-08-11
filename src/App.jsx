@@ -1,9 +1,10 @@
-import { ParentComponent } from "./components/PropDrilling";
+import { ReducerComp } from "./components/hooks/UseReducer";
+
 
 export const App = () => {
   return  (
-    <section className="container">
-      {<ParentComponent />}
-    </section>
+    <>
+      <ReducerComp/>
+    </>
   );
 };
